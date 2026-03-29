@@ -26,5 +26,5 @@ def dropout(x, p=0.5, rng=None):
 def dropout_pattern(p,x,rng):
     
     rand = rng.random(x.shape) if rng is not None else np.random.random(x.shape)
-    dropout_pattern = rand >= p
+    dropout_pattern = (rand >= p).astype(int)
     return dropout_pattern
